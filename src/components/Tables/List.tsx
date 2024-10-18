@@ -1,5 +1,4 @@
 import {empty, isset} from "@/faco"
-import Link from "next/link";
 
 export default async function List({searchParams}) {
     let url = 'https://back-prd.ke001.kurumaerabi.com/ranking/'
