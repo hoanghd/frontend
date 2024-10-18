@@ -1,5 +1,6 @@
 import { Suspense } from "react"
 import CarNames from "@/components/CarNames"
+import Link from "next/link";
 
 export default async function Makers() {
     const response = await fetch('https://back-prd.ke001.kurumaerabi.com/catalog/car_maker_catalog', {  cache: 'no-store' })
@@ -9,10 +10,9 @@ export default async function Makers() {
         <ul>
             {list.map((row: any) => (
                 <li key={row.car_maker_id}>
-                    {row.car_maker_name}
-                    <Suspense fallback={<p>Loading carname...</p>}>
-                        <CarNames id={row.car_maker_id}/>
-                    </Suspense>
+                    <Link href={`/suspense/${row.car_maker_id}/`}>
+                        {row.car_maker_name}
+                    </Link>
                 </li>
             ))}
         </ul>
