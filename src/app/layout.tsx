@@ -36,15 +36,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" href="/charts/">
+              <Link className="nav-link" href="/suspense/">
                 <i className="fas fa-fw fa-chart-area"></i>
-                <span>Charts</span>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" href="/tables/">
-                <i className="fas fa-fw fa-table"></i>
-                <span>Tables</span>
+                <span>Suspense</span>
               </Link>
             </li>
             <hr className="sidebar-divider d-none d-md-block"/>
@@ -68,7 +62,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                 </ul>
               </nav>
               <div className="container-fluid">
-                {children}
+                  {children}
               </div>
             </div>
             <footer className="sticky-footer bg-white">
