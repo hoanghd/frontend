@@ -28,9 +28,7 @@ export default function Page({searchParams = {}}) {
                 <List {...{searchParams}}/>
               </Suspense>
             </tbody>
-
           </table>
-
         </div>
       </div>
     </div>
