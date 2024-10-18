@@ -1,0 +1,50 @@
+import { Suspense } from 'react'
+import Makers from "@/components/Makers"
+import CarNames from "@/components/CarNames"
+
+export default function Page({ params: { car_maker_id, car_name_id }}) {
+    return <div>
+        <h1 className="h3 mb-1 text-gray-800"></h1>
+        <div className="row">
+            <div className="col-lg-4">
+                <div className="card shadow mb-4">
+                    <div className="card-header py-3">
+                        <h6 className="m-0 font-weight-bold text-primary">メーカー</h6>
+                    </div>
+                    <div className="card-body">
+                        <Suspense fallback={<p>Loading makers...</p>}>
+                            <Makers/>
+                        </Suspense>
+                    </div>
+                </div>
+            </div>
+
+            <div className="col-lg-4">
+                <div className="card shadow mb-4">
+                    <div className="card-header py-3">
+                        <h6 className="m-0 font-weight-bold text-primary">車種</h6>
+                    </div>
+                    <div className="card-body">
+                        <Suspense fallback={<p>Loading carname...</p>}>
+                            <CarNames id={car_maker_id}/>
+                        </Suspense>
+                    </div>
+                </div>
+            </div>
+
+            <div className="col-lg-4">
+                <div className="card shadow mb-4">
+                    <div className="card-header py-3">
+                        <h6 className="m-0 font-weight-bold text-primary">モデル（販売時期）</h6>
+                    </div>
+                    <div className="card-body">
+                        <Suspense fallback={<p>Loading model...</p>}>
+
+                        </Suspense>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}

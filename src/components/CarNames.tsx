@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const alphaText: any = {
     en: '英数/他',
     aa: 'ア行',
@@ -23,7 +25,11 @@ export default async function CarNames({id}) {
                     {alphaText[key]}
                     <ul>
                         {rows.map(row => (
-                            <li key={row.car_name_id}>{row.name}</li>
+                            <li key={`${row.car_maker_id}_${row.car_name_id}`}>
+                                <Link href={`/suspense/${row.car_maker_id}/${row.car_name_id}/`}>
+                                    {row.name}
+                                </Link>
+                            </li>
                         ))}
                     </ul>
                 </li>
