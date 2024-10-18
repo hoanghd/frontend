@@ -3,7 +3,7 @@ import CarNames from "@/components/CarNames"
 import Link from "next/link";
 
 export default async function Makers() {
-    const response = await fetch('https://back-prd.ke001.kurumaerabi.com/catalog/car_maker_catalog', {  cache: 'no-store' })
+    const response = await fetch('https://back-prd.ke001.kurumaerabi.com/catalog/car_maker_catalog')
     const {list = []} = await response.json()
 
     return (

@@ -14,7 +14,7 @@ const alphaText: any = {
 }
 
 export default async function CarNames({id}) {
-    const response = await fetch(`https://back-prd.ke001.kurumaerabi.com/catalog/car_names/${id}`, {  cache: 'no-store' })
+    const response = await fetch(`https://back-prd.ke001.kurumaerabi.com/catalog/car_names/${id}`)
     const data = await response.json()
     return (
         <ul>
