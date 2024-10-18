@@ -1,6 +1,6 @@
-import Link from "next/link";
+import Link from "next/link"
 
-const alphaText: any = {
+const alphaText = {
     en: '英数/他',
     aa: 'ア行',
     ka: 'カ行',
@@ -15,8 +15,8 @@ const alphaText: any = {
     all: ''
 }
 
-export default async function CarNames({id}) {
-    const response = await fetch(`https://back-prd.ke001.kurumaerabi.com/catalog/car_names/${id}`)
+export default async function CarNames({car_maker_id}) {
+    const response = await fetch(`https://back-prd.ke001.kurumaerabi.com/catalog/car_names/${car_maker_id}`)
     const data = await response.json()
     return (
         <ul>

@@ -26,7 +26,7 @@ export default function Page({ params: { car_maker_id }}) {
                     </div>
                     <div className="card-body">
                         <Suspense fallback={<p>Loading carname...</p>}>
-                            <CarNames id={car_maker_id}/>
+                            <CarNames {...{car_maker_id}}/>
                         </Suspense>
                     </div>
                 </div>

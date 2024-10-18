@@ -1,9 +1,10 @@
 import { Suspense } from 'react'
+import Grades from "@/components/Grades"
 import Makers from "@/components/Makers"
 import Models from "@/components/Models"
 import CarNames from "@/components/CarNames"
 
-export default function Page({ params: { car_maker_id, car_name_id }}) {
+export default function Page({ params: { car_maker_id, car_name_id, full_start_date }}) {
     return <div>
         <h1 className="h3 mb-1 text-gray-800"></h1>
         <div className="row">
@@ -41,6 +42,17 @@ export default function Page({ params: { car_maker_id, car_name_id }}) {
                     <div className="card-body">
                         <Suspense fallback={<p>Loading model...</p>}>
                             <Models {...{car_maker_id, car_name_id}}/>
+                        </Suspense>
+                    </div>
+                </div>
+
+                <div className="card shadow mb-4">
+                    <div className="card-header py-3">
+                        <h6 className="m-0 font-weight-bold text-primary">グレード</h6>
+                    </div>
+                    <div className="card-body">
+                        <Suspense fallback={<p>Loading grade...</p>}>
+                            <Grades {...{car_maker_id, car_name_id, full_start_date}}/>
                         </Suspense>
                     </div>
                 </div>
