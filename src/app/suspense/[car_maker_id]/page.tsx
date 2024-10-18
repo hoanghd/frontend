@@ -22,7 +22,7 @@ export default function Page({ params: { car_maker_id }}) {
             <div className="col-lg-4">
                 <div className="card shadow mb-4">
                     <div className="card-header py-3">
-                        <h6 className="m-0 font-weight-bold text-primary">メーカー</h6>
+                        <h6 className="m-0 font-weight-bold text-primary">車種</h6>
                     </div>
                     <div className="card-body">
                         <Suspense fallback={<p>Loading carname...</p>}>
