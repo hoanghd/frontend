@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import "./globals.css"
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: "Symphony",
@@ -10,39 +10,42 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
       <html lang="en">
       <head>
-        <link href="//startbootstrap.github.io/startbootstrap-sb-admin-2/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"/>
+        <link href="//startbootstrap.github.io/startbootstrap-sb-admin-2/vendor/fontawesome-free/css/all.min.css"
+              rel="stylesheet" type="text/css"/>
         <link
             href="//fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-            rel="stylesheet"/>
+            rel="stylesheet" type="text/css"/>
+        <link href="//startbootstrap.github.io/startbootstrap-sb-admin-2/css/sb-admin-2.min.css"
+              rel="stylesheet" type="text/css"/>
       </head>
 
       <body id="page-top">
-        <div id="wrapper">
-          <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-            <a className="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <div id="wrapper">
+        <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <Link className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
               <div className="sidebar-brand-icon rotate-n-15">
                 <i className="fas fa-laugh-wink"></i>
               </div>
               <div className="sidebar-brand-text mx-3">Symphony</div>
-            </a>
+            </Link>
             <hr className="sidebar-divider"/>
             <li className="nav-item">
-              <a className="nav-link" href="index.html">
+              <Link className="nav-link" href="/">
                 <i className="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span>
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="charts.html">
+              <Link className="nav-link" href="/charts/">
                 <i className="fas fa-fw fa-chart-area"></i>
                 <span>Charts</span>
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="tables.html">
+              <Link className="nav-link" href="/tables/">
                 <i className="fas fa-fw fa-table"></i>
                 <span>Tables</span>
-              </a>
+              </Link>
             </li>
             <hr className="sidebar-divider d-none d-md-block"/>
             <div className="text-center d-none d-md-inline">
@@ -57,11 +60,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                 </button>
                 <ul className="navbar-nav ml-auto">
                   <li className="nav-item dropdown no-arrow">
-                    <a className="nav-link dropdown-toggle" href="#" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <Link className="nav-link dropdown-toggle" href="/">
                       <span className="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
                       <img className="img-profile rounded-circle" src="/img/undraw_profile.svg"/>
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </nav>
