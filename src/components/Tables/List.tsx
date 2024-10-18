@@ -18,7 +18,7 @@ export default async function List({searchParams}) {
     const {rows = []} = await response.json()
 
     return (
-        <tbody>
+        <>
             {rows.map(row => (
                 <tr key={`${row.car_maker_name}_${row.car_name}_${row.grade}`}>
                     <td>{row.car_maker_name}</td>
@@ -29,6 +29,12 @@ export default async function List({searchParams}) {
                 </tr>
                 )
             )}
-        </tbody>
+
+            {empty(rows) && (
+                <tr>
+                    <td colSpan={5}>No data</td>
+                </tr>
+            )}
+        </>
     )
 }
