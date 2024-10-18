@@ -1,6 +1,6 @@
 import { Suspense } from 'react'
-import Makers from "@/components/Makers"
-import CarNames from "@/components/CarNames"
+import Makers from "@/components/Suspense/Makers"
+import CarNames from "@/components/Suspense/CarNames"
 
 export default function Page({ params: { car_maker_id }}) {
     return <div>

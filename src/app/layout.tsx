@@ -21,35 +21,41 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 
       <body id="page-top">
       <div id="wrapper">
-        <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-            <Link className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
-              <div className="sidebar-brand-icon rotate-n-15">
-                <i className="fas fa-laugh-wink"></i>
+          <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+              <Link className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+                  <div className="sidebar-brand-icon rotate-n-15">
+                      <i className="fas fa-laugh-wink"></i>
+                  </div>
+                  <div className="sidebar-brand-text mx-3">Symphony</div>
+              </Link>
+              <hr className="sidebar-divider"/>
+              <li className="nav-item">
+                  <Link className="nav-link" href="/">
+                      <i className="fas fa-fw fa-tachometer-alt"></i>
+                      <span>Dashboard</span>
+                  </Link>
+              </li>
+              <li className="nav-item">
+                  <Link className="nav-link" href="/tables/">
+                      <i className="fas fa-fw fa-table"></i>
+                      <span>Tables</span>
+                  </Link>
+              </li>
+              <li className="nav-item">
+                  <Link className="nav-link" href="/suspense/">
+                      <i className="fas fa-fw fa-cog"></i>
+                      <span>Suspense</span>
+                  </Link>
+              </li>
+              <hr className="sidebar-divider d-none d-md-block"/>
+              <div className="text-center d-none d-md-inline">
+                  <button className="rounded-circle border-0" id="sidebarToggle"></button>
               </div>
-              <div className="sidebar-brand-text mx-3">Symphony</div>
-            </Link>
-            <hr className="sidebar-divider"/>
-            <li className="nav-item">
-              <Link className="nav-link" href="/">
-                <i className="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" href="/suspense/">
-                <i className="fas fa-fw fa-chart-area"></i>
-                <span>Suspense</span>
-              </Link>
-            </li>
-            <hr className="sidebar-divider d-none d-md-block"/>
-            <div className="text-center d-none d-md-inline">
-              <button className="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
           </ul>
           <div id="content-wrapper" className="d-flex flex-column">
-            <div id="content">
-              <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-                <button id="sidebarToggleTop" className="btn btn-link d-md-none rounded-circle mr-3">
+              <div id="content">
+                  <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                      <button id="sidebarToggleTop" className="btn btn-link d-md-none rounded-circle mr-3">
                   <i className="fa fa-bars"></i>
                 </button>
                 <ul className="navbar-nav ml-auto">

@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import Makers from "@/components/Makers"
+import Makers from "@/components/Suspense/Makers"
 
 export default function Page() {
   return <div>
