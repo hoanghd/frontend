@@ -30,24 +30,29 @@ export default function Pagination({ count = 0, searchParams = {}, maxButtons = 
     }
 
     return (
-        <>
-            { pageCount>1 && (
-                <nav>
-                    <ul className="pagination justify-content-end">
-                        <li className={`page-item ` + (page == 1 ? 'disabled' : '')} style={{cursor: 'pointer'}}>
-                            <a className="page-link" onClick={() => onPage( page - 1 )}>前へ</a>
-                        </li>
-                        {ranges.map(value => (
-                            <li key={value} className={`page-item ` + ((value == page) ? 'active' : '')} style={{cursor: 'pointer'}}>
-                                <a className="page-link" onClick={() => onPage(value)}>{value}</a>
+        <div className="row">
+            <div className="col-sm-12 col-md-5">
+                検索結果  {count}件 {(page-1) * perPage + 1}～{Math.min(page * perPage, count)}件を表示しています
+            </div>
+            <div className="col-sm-12 col-md-7">
+                { pageCount>1 && (
+                    <nav>
+                        <ul className="pagination justify-content-end">
+                            <li className={`page-item ` + (page == 1 ? 'disabled' : '')} style={{cursor: 'pointer'}}>
+                                <a className="page-link" onClick={() => onPage( page - 1 )}>前へ</a>
                             </li>
-                        ))}
-                        <li className={`page-item ` + (page == pageCount ? 'disabled' : '')} style={{cursor: 'pointer'}}>
-                            <a className="page-link" onClick={() => onPage( page + 1 )}>次へ</a>
-                        </li>
-                    </ul>
-                </nav>
-            )}
-        </>
+                            {ranges.map(value => (
+                                <li key={value} className={`page-item ` + ((value == page) ? 'active' : '')} style={{cursor: 'pointer'}}>
+                                    <a className="page-link" onClick={() => onPage(value)}>{value}</a>
+                                </li>
+                            ))}
+                            <li className={`page-item ` + (page == pageCount ? 'disabled' : '')} style={{cursor: 'pointer'}}>
+                                <a className="page-link" onClick={() => onPage( page + 1 )}>次へ</a>
+                            </li>
+                        </ul>
+                    </nav>
+                )}
+            </div>
+        </div>
     )
 }
