@@ -7,7 +7,7 @@ import { isset } from "@/faco"
 import { pick } from "lodash"
 
 export default function FormFilter({searchParams = {}, makers = [], carnames = []}) {
-    const router = useRouter()
+    const { replace } = useRouter()
 
     const [state, setState] = useState({
         car_maker_id: '',
@@ -33,7 +33,7 @@ export default function FormFilter({searchParams = {}, makers = [], carnames = [
         }
     }
 
-    const onSubmit = () => router.push( `/?` + new URLSearchParams({
+    const onSubmit = () => replace( `/?` + new URLSearchParams({
         ...searchParams,
         ...pick(state, ['car_maker_id', 'car_name_id'])
     }).toString())
