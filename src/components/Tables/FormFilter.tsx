@@ -40,20 +40,20 @@ export default function FormFilter({searchParams = {}, makers = [], carnames = [
     }).toString())
 
     return (
-        <form>
+        <form className="form-inline">
             <div className="form-group">
-                <label>メーカー</label>
-                <select name="car_maker_id" onChange={setValue} value={state.car_maker_id} placeholder="すべて" className="form-control">
-                    <option value="">すべて</option>
+                <label className="sr-only">メーカー</label>
+                <select name="car_maker_id" onChange={setValue} value={state.car_maker_id} placeholder="メーカー" className="form-control">
+                    <option value="">メーカー</option>
                     {makers && makers.map(row =>
                         <option key={row.car_maker_id} value={row.car_maker_id}>{row.car_maker_name}</option>
                     )}
                 </select>
             </div>
-            <div className="form-group">
-                <label>車名</label>
-                <select name="car_name_id" onChange={setValue} value={state.car_name_id} placeholder="すべて" className="form-control">
-                    <option value="">すべて</option>
+            <div className="form-group mx-sm-3">
+                <label className="sr-only">車名</label>
+                <select name="car_name_id" onChange={setValue} value={state.car_name_id} placeholder="車名" className="form-control">
+                    <option value="">車名</option>
                     {state.carnames && state.carnames.map(row =>
                         <option key={row.car_name_id} value={row.car_name_id}>{row.name}</option>
                     )}
