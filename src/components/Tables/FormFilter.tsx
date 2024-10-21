@@ -2,7 +2,7 @@
 
 import { ChangeEvent, useState } from "react"
 import { useRouter } from "next/navigation"
-import { empty } from "@/faco"
+import { isset } from "@/faco"
 
 export default function FormFilter({searchParams = {}, makers = [], carnames = []}) {
     const router = useRouter()
@@ -19,7 +19,7 @@ export default function FormFilter({searchParams = {}, makers = [], carnames = [
             case 'car_maker_id':
                 setState( state => ({...state, [name]: value, car_name_id: '', carnames: []}))
 
-                if( !empty(value) ){
+                if( isset(value) ){
                     const response = await fetch(`${process.env.BASE_API_URL}/ranking/syasyu/car_name?id=${value}`)
                     carnames = await response.json()
                     setState( state => ({...state, carnames}))
