@@ -17,7 +17,7 @@ export default function FormFilter({searchParams = {}, makers = [], carnames = [
     const setValue = async ({ target:{ name, value } }: ChangeEvent<{  name:string, value:string }>) => {
         switch (name){
             case 'car_maker_id':
-                setState( state => ({...state, [name]: value, car_name_id: ''}))
+                setState( state => ({...state, [name]: value, car_name_id: '', carnames: []}))
 
                 if( !empty(value) ){
                     const response = await fetch(`${process.env.BASE_API_URL}/ranking/syasyu/car_name?id=${value}`)
