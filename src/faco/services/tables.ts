@@ -13,3 +13,19 @@ export async function formFilterInit( searchParams ){
 
     return { searchParams, makers, carnames }
 }
+
+export function makeUrl(searchParams){
+    let url = `${process.env.BASE_API_URL}/ranking/`
+
+    if( isset(searchParams.car_maker_id) ) {
+        if( isset(searchParams.car_name_id) ) {
+            url += `syasyu?category=${searchParams.car_maker_id}_${searchParams.car_name_id}`
+        } else {
+            url += `maker?category=${searchParams.car_maker_id}`
+        }
+    } else {
+        url += 'category'
+    }
+
+    return url
+}

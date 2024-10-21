@@ -1,33 +1,24 @@
-import { empty, isset } from "@/faco"
+import { empty } from "@/faco"
+import { makeUrl } from "@/faco/services/tables"
 
 export default async function ResultList({searchParams}) {
-    let url = `${process.env.BASE_API_URL}/ranking/`
-
-    if( isset(searchParams.car_maker_id) ) {
-        if( isset(searchParams.car_name_id) ) {
-            url += `syasyu?category=${searchParams.car_maker_id}_${searchParams.car_name_id}`
-        } else {
-            url += `maker?category=${searchParams.car_maker_id}`
-        }
-    } else {
-        url += 'category'
-    }
-
-    const response = await fetch(url)
+    const response = await fetch( makeUrl(searchParams) )
     const { rows = [] } = await response.json()
 
     return (
-        <table className="table table-bordered bg-white" width="100%" cellSpacing="0">
-            <thead>
-            <tr>
-                <th>メーカー</th>
-                <th>車名</th>
-                <th>モデル</th>
-                <th>支払総額 (税込)</th>
-                <th>本体価格 (税込)</th>
-            </tr>
-            </thead>
-            <tbody>
+        <>
+            <table className="table table-bordered bg-white" width="100%" cellSpacing="0">
+                <thead>
+                <tr>
+                    <th>メーカー</th>
+                    <th>車名</th>
+                    <th>モデル</th>
+                    <th>支払総額 (税込)</th>
+                    <th>本体価格 (税込)</th>
+                </tr>
+                </thead>
+                <tbody>
+
                 {rows.map((row, index) => (
                     <tr key={`${index}_${row.car_maker_name}_${row.car_name}_${row.grade}`}>
                         <td>{row.car_maker_name}</td>
@@ -43,7 +34,18 @@ export default async function ResultList({searchParams}) {
                         <td colSpan={5}>No data</td>
                     </tr>
                 )}
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+
+            <nav aria-label="navigation">
+                <ul className="pagination justify-content-end">
+                    <li className="page-item"><a className="page-link" href="#">Previous</a></li>
+                    <li className="page-item"><a className="page-link" href="#">1</a></li>
+                    <li className="page-item"><a className="page-link" href="#">2</a></li>
+                    <li className="page-item"><a className="page-link" href="#">3</a></li>
+                    <li className="page-item"><a className="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>
+        </>
     )
 }
