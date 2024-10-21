@@ -2,7 +2,7 @@ import { Suspense } from "react"
 import ResultList from "@/components/Tables/ResultList"
 import FormFilter from "@/components/Tables/FormFilter"
 import { formFilterInit } from "@/faco/services/tables"
-import ResultLoading from "@/components/Tables/ResultLoading"
+import Loading from "@/components/Tables/Loading"
 
 export default async function Page({searchParams = {}}) {
   return <div>
@@ -20,7 +20,7 @@ export default async function Page({searchParams = {}}) {
       </div>
       <div className="col-sm-12 col-md-12">
         <div className="table-responsive">
-          <Suspense fallback={<ResultLoading/>}>
+          <Suspense fallback={<Loading/>}>
             <ResultList {...{searchParams}} />
           </Suspense>
         </div>

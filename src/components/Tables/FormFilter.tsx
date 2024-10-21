@@ -1,9 +1,12 @@
 'use client'
 
 import { ChangeEvent, useState } from "react"
+import { useRouter } from "next/navigation"
 import { empty } from "@/faco"
 
 export default function FormFilter({searchParams = {}, makers = [], carnames = []}) {
+    const router = useRouter()
+
     const [state, setState] = useState({
         car_maker_id: '',
         car_name_id: '',
@@ -29,6 +32,8 @@ export default function FormFilter({searchParams = {}, makers = [], carnames = [
         }
     }
 
+    const onSubmit = () => router.push( `/tables?` + new URLSearchParams({...searchParams, car_maker_id: state.car_maker_id, car_name_id: state.car_name_id}).toString() )
+
     return (
         <form>
             <div className="form-group">
@@ -49,7 +54,7 @@ export default function FormFilter({searchParams = {}, makers = [], carnames = [
                     )}
                 </select>
             </div>
-            <button type="submit" className="btn btn-primary">絞込</button>
+            <button onClick={onSubmit} type="button" className="btn btn-primary">絞込</button>
         </form>
     )
 }

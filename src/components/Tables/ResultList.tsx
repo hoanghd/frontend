@@ -3,15 +3,14 @@ import { empty, isset } from "@/faco"
 export default async function ResultList({searchParams}) {
     let url = `${process.env.BASE_API_URL}/ranking/`
 
-    if( empty(searchParams) ){
-        url += 'category'
-    }
-    else if( isset(searchParams.car_maker_id) ) {
-        if( isset(searchParams.car_name_id) ) {
+    if( !empty(searchParams.car_maker_id) ) {
+        if( !empty(searchParams.car_name_id) ) {
             url += `syasyu?category=${searchParams.car_maker_id}_${searchParams.car_name_id}`
         } else {
             url += `maker?category=${searchParams.car_maker_id}`
         }
+    } else {
+        url += 'category'
     }
 
     const response = await fetch(url)

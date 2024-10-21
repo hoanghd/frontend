@@ -1,4 +1,4 @@
-export default async function ResultLoading() {
+export default async function Loading() {
     return (
         <table className="table table-bordered bg-white" width="100%" cellSpacing="0">
             <thead>
