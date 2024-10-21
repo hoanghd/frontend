@@ -15,7 +15,9 @@ export const TableService = {
 
     makeUrl(searchParams){
         let url = `${process.env.BASE_API_URL}/ranking/`
-        let params = new URLSearchParams({page: searchParams.page || 1})
+        let params = new URLSearchParams({
+            page: searchParams.page || 1
+        })
 
         if( isset(searchParams.car_maker_id) ) {
             if( isset(searchParams.car_name_id) ) {
