@@ -35,7 +35,7 @@ export default function Pagination({ count = 0, searchParams = {}, maxButtons = 
                 <nav>
                     <ul className="pagination justify-content-end">
                         <li className={`page-item ` + (page == 1 ? 'disabled' : '')} style={{cursor: 'pointer'}}>
-                            <a className="page-link" onClick={() => onPage( page - 1 )}>Previous</a>
+                            <a className="page-link" onClick={() => onPage( page - 1 )}>前へ</a>
                         </li>
                         {ranges.map(value => (
                             <li key={value} className={`page-item ` + ((value == page) ? 'active' : '')} style={{cursor: 'pointer'}}>
@@ -43,7 +43,7 @@ export default function Pagination({ count = 0, searchParams = {}, maxButtons = 
                             </li>
                         ))}
                         <li className={`page-item ` + (page == pageCount ? 'disabled' : '')} style={{cursor: 'pointer'}}>
-                            <a className="page-link" onClick={() => onPage( page + 1 )}>Next</a>
+                            <a className="page-link" onClick={() => onPage( page + 1 )}>次へ</a>
                         </li>
                     </ul>
                 </nav>
