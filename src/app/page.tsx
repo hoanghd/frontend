@@ -1,8 +1,8 @@
-import { Suspense } from "react"
 import LoadingResult from "@/components/Tables/Loading/Result"
 import LoadingForm from "@/components/Tables/Loading/Form"
 import ResultList from "@/components/Tables/ResultList"
 import FormServer from "@/components/Tables/FormServer"
+import { Suspense } from "react"
 
 export default async function Page({searchParams = {}}) {
   return <div>

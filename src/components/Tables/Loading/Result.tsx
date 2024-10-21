@@ -1,6 +1,6 @@
 export default async function LoadingResult() {
     return (
-        <table className="table table-bordered bg-white" width="100%" cellSpacing="0">
+        <table className="table table-bordered bg-white loading-skeleton" width="100%" cellSpacing="0">
             <thead>
             <tr>
                 <th>メーカー</th>
@@ -12,7 +12,7 @@ export default async function LoadingResult() {
             </thead>
             <tbody>
             <tr>
-                <td colSpan="5">Loading...</td>
+                <td colSpan="5"></td>
             </tr>
             </tbody>
         </table>

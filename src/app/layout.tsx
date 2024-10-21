@@ -10,17 +10,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
       <html lang="en">
       <head>
-        <link href="//startbootstrap.github.io/startbootstrap-sb-admin-2/vendor/fontawesome-free/css/all.min.css"
-              rel="stylesheet" type="text/css"/>
-        <link
-            href="//fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-            rel="stylesheet" type="text/css"/>
-        <link href="//startbootstrap.github.io/startbootstrap-sb-admin-2/css/sb-admin-2.min.css"
-              rel="stylesheet" type="text/css"/>
+          <link href="//startbootstrap.github.io/startbootstrap-sb-admin-2/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"/>
+          <link href="//fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" type="text/css"/>
+          <link href="//startbootstrap.github.io/startbootstrap-sb-admin-2/css/sb-admin-2.min.css" rel="stylesheet" type="text/css"/>
+          <link href="/css/style.css" rel="stylesheet" type="text/css"/>
       </head>
-
       <body id="page-top">
-      <div id="wrapper">
+        <div id="wrapper">
           <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
               <Link className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
                   <div className="sidebar-brand-icon rotate-n-15">
