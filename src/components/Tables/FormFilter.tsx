@@ -1,9 +1,10 @@
 'use client'
 
+import { TableClient } from "@/faco/tables/client"
 import { ChangeEvent, useState } from "react"
 import { useRouter } from "next/navigation"
 import { isset } from "@/faco"
-import {TableClient} from "@/faco/tables/client";
+import { pick } from "lodash"
 
 export default function FormFilter({searchParams = {}, makers = [], carnames = []}) {
     const router = useRouter()
@@ -34,8 +35,7 @@ export default function FormFilter({searchParams = {}, makers = [], carnames = [
 
     const onSubmit = () => router.push( `/?` + new URLSearchParams({
         ...searchParams,
-        car_maker_id: state.car_maker_id,
-        car_name_id: state.car_name_id
+        ...pick(state, ['car_maker_id', 'car_name_id'])
     }).toString())
 
     return (
