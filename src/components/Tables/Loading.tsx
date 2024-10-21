@@ -12,7 +12,7 @@ export default async function Loading() {
             </thead>
             <tbody>
             <tr>
-                <td rowSpan="5">Loading...</td>
+                <td colSpan="5">Loading...</td>
             </tr>
             </tbody>
         </table>
