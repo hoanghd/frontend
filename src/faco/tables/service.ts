@@ -34,34 +34,28 @@ export const TableService = {
         return url + '?' + params.toString()
     },
 
-    pager(c, m) {
-        const current = c,
-            last = m,
-            delta = 2,
-            left = current - delta,
-            right = current + delta + 1,
-            range = [],
-            rangeWithDots = []
-        let l
+    pager(page, total, maxButtons = 5, perPage = 20 ) {
+        const pageCount = Math.max(1, Math.ceil(total / perPage))
+        const current = Math.min(page || 1, pageCount)
 
-        for (let i = 1; i <= last; i++) {
-            if (i == 1 || i == last || i >= left && i < right) {
-                range.push(i);
-            }
+        const start = Math.max(
+            Math.min(
+                current - Math.floor(maxButtons / 2),
+                pageCount - maxButtons + 1
+            ),
+            1
+        )
+
+        const end = start + maxButtons - 1
+        const step = 1
+
+        return {
+            current,
+            pageCount,
+            ranges: Array.from(
+                { length: (end - start) / step + 1 },
+                (value, index) => start + index * step
+            )
         }
-
-        for (const i of range) {
-            if (l) {
-                if (i - l === 2) {
-                    rangeWithDots.push(l + 1);
-                } else if (i - l !== 1) {
-                    rangeWithDots.push('...');
-                }
-            }
-            rangeWithDots.push(i);
-            l = i;
-        }
-
-        return rangeWithDots;
     }
 }

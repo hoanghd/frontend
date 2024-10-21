@@ -5,31 +5,28 @@ import { TableService } from "@/faco/tables/service"
 
 export default function Pagination({ count = 0, searchParams = {} }) {
     const { replace } = useRouter()
-
-    const page = searchParams.page || 1
-    const pages = Math.ceil(count / 20)
-    const ranges = TableService.pager(page, pages)
+    const { current, pageCount, ranges } = TableService.pager(searchParams.page, count)
 
     const onPage = (value) => {
-        if(['...', page].includes(value)) return
+        if(['...', current].includes(value)) return
         replace('?' + new URLSearchParams({...searchParams, page: value}).toString())
     }
 
     return (
         <>
-            { pages>1 && (
-                <nav aria-label="Page navigation example">
+            { pageCount>1 && (
+                <nav>
                     <ul className="pagination justify-content-end">
-                        <li className={`page-item ` + (page == 1 ? 'disabled' : '')}>
+                        <li className={`page-item ` + (current == 1 ? 'disabled' : '')} style={{cursor: 'pointer'}}>
                             <a className="page-link" onClick={() => onPage(1)}>Previous</a>
                         </li>
                         {ranges.map(value => (
-                            <li key={value} className={`page-item ` + ((value == page) ? 'active' : '')}>
+                            <li key={value} className={`page-item ` + ((value == current) ? 'active' : '')} style={{cursor: 'pointer'}}>
                                 <a className="page-link" onClick={() => onPage(value)}>{value}</a>
                             </li>
                         ))}
-                        <li className={`page-item ` + (page == pages ? 'disabled' : '')}>
-                            <a className="page-link" onClick={() => onPage(pages)}>Next</a>
+                        <li className={`page-item ` + (current == pageCount ? 'disabled' : '')} style={{cursor: 'pointer'}}>
+                            <a className="page-link" onClick={() => onPage(pageCount)}>Next</a>
                         </li>
                     </ul>
                 </nav>
