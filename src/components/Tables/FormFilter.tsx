@@ -32,7 +32,7 @@ export default function FormFilter({searchParams = {}, makers = [], carnames = [
         }
     }
 
-    const onSubmit = () => router.push( `/tables?` + new URLSearchParams({
+    const onSubmit = () => router.push( `/?` + new URLSearchParams({
         ...searchParams,
         car_maker_id: state.car_maker_id,
         car_name_id: state.car_name_id

@@ -32,12 +32,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               <li className="nav-item">
                   <Link className="nav-link" href="/">
                       <i className="fas fa-fw fa-tachometer-alt"></i>
-                      <span>Dashboard</span>
-                  </Link>
-              </li>
-              <li className="nav-item">
-                  <Link className="nav-link" href="/tables/">
-                      <i className="fas fa-fw fa-table"></i>
                       <span>Tables</span>
                   </Link>
               </li>
