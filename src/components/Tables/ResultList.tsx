@@ -1,8 +1,8 @@
 import { empty } from "@/faco"
-import { makeUrl } from "@/faco/services/tables"
+import { TableService } from "@/faco/tables/service"
 
 export default async function ResultList({searchParams}) {
-    const response = await fetch( makeUrl(searchParams) )
+    const response = await fetch( TableService.makeUrl(searchParams) )
     const { rows = [] } = await response.json()
 
     return (

@@ -2,7 +2,7 @@ import { Suspense } from "react"
 import Loading from "@/components/Tables/Loading"
 import ResultList from "@/components/Tables/ResultList"
 import FormFilter from "@/components/Tables/FormFilter"
-import { formFilterInit } from "@/faco/services/tables"
+import { TableService } from "@/faco/tables/service"
 
 export default async function Page({searchParams = {}}) {
   return <div>
@@ -14,7 +14,7 @@ export default async function Page({searchParams = {}}) {
             絞り込み
           </div>
           <div className="card-body">
-            <FormFilter {...(await formFilterInit(searchParams))}/>
+            <FormFilter {...(await TableService.formFilterInit(searchParams))}/>
           </div>
         </div>
       </div>
