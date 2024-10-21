@@ -1,6 +1,11 @@
-import { SkeletonTablesResult, SkeletonTablesForm } from "@/components/Skeleton"
 import ResultList from "@/components/Tables/ResultList"
 import FormServer from "@/components/Tables/FormServer"
+
+import {
+  SkeletonTablesResult,
+  SkeletonTablesForm
+} from "@/components/Skeleton"
+
 import { Suspense } from "react"
 
 export default async function Page({searchParams = {}}) {
