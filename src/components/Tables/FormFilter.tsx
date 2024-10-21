@@ -33,7 +33,7 @@ export default function FormFilter({searchParams = {}, makers = [], carnames = [
         }
     }
 
-    const onSubmit = () => replace( `/?` + new URLSearchParams({
+    const onSubmit = () => replace( `?` + new URLSearchParams({
         ...searchParams,
         ...pick(state, ['car_maker_id', 'car_name_id']),
         page: 1
