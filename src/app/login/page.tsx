@@ -1,6 +1,3 @@
-import { Suspense } from 'react'
-import Makers from "@/components/Suspense/Makers"
-
 export default function Page() {
   return <div>
     <h1 className="h3 mb-1 text-gray-800"></h1>
@@ -8,12 +5,10 @@ export default function Page() {
       <div className="col-lg-4">
         <div className="card shadow mb-4">
           <div className="card-header py-3">
-            <h6 className="m-0 font-weight-bold text-primary">メーカー</h6>
+            <h6 className="m-0 font-weight-bold text-primary">Login</h6>
           </div>
           <div className="card-body">
-            <Suspense fallback={<p>Loading makers...</p>}>
-              <Makers/>
-            </Suspense>
+
           </div>
         </div>
       </div>

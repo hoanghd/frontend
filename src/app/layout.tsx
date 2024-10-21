@@ -32,9 +32,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                   </Link>
               </li>
               <li className="nav-item">
-                  <Link className="nav-link" href="/suspense/">
+                  <Link className="nav-link" href="/login/">
                       <i className="fas fa-fw fa-cog"></i>
-                      <span>Suspense</span>
+                      <span>Login</span>
                   </Link>
               </li>
               <hr className="sidebar-divider d-none d-md-block"/>
