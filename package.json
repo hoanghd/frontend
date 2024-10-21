@@ -12,6 +12,7 @@
     "lodash": "^4.17.21",
     "next": "14.2.15",
     "react": "^18",
+    "react-bootstrap-pagination-control": "^1.0.5",
     "react-dom": "^18"
   },
   "devDependencies": {

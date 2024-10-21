@@ -3,7 +3,7 @@ import Pagination from "@/components/Pagination"
 import { TableClient } from "@/faco/tables/client"
 
 export default async function ResultList({searchParams}) {
-    const { rows = [] } = await TableClient.find(searchParams)
+    const { rows = [], count = 0 } = await TableClient.find(searchParams)
 
     return (
         <>
@@ -37,7 +37,7 @@ export default async function ResultList({searchParams}) {
                 </tbody>
             </table>
 
-            <Pagination/>
+            <Pagination {...{count, searchParams}}/>
         </>
     )
 }

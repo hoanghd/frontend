@@ -1,13 +1,24 @@
-export default async function Pagination() {
+'use client'
+
+import { PaginationControl } from 'react-bootstrap-pagination-control'
+import { useRouter } from "next/navigation"
+
+export default function Pagination({ count = 0, searchParams = {} }) {
+    const { replace } = useRouter()
+
+
     return (
-        <nav aria-label="navigation">
-            <ul className="pagination justify-content-end">
-                <li className="page-item"><a className="page-link" href="#">Previous</a></li>
-                <li className="page-item"><a className="page-link" href="#">1</a></li>
-                <li className="page-item"><a className="page-link" href="#">2</a></li>
-                <li className="page-item"><a className="page-link" href="#">3</a></li>
-                <li className="page-item"><a className="page-link" href="#">Next</a></li>
-            </ul>
-        </nav>
+        <PaginationControl
+            page={searchParams.page || 1}
+            between={4}
+            total={count}
+            limit={20}
+            changePage={page => {
+                let url = new URLSearchParams(searchParams)
+                url.set('page', page)
+                replace(`/?` + url.toString())
+            }}
+            ellipsis={1}
+        />
     )
 }

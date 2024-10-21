@@ -15,17 +15,20 @@ export const TableService = {
 
     makeUrl(searchParams){
         let url = `${process.env.BASE_API_URL}/ranking/`
+        let params = new URLSearchParams({page: searchParams.page || 1})
 
         if( isset(searchParams.car_maker_id) ) {
             if( isset(searchParams.car_name_id) ) {
-                url += `syasyu?category=${searchParams.car_maker_id}_${searchParams.car_name_id}`
+                params.set('category', `${searchParams.car_maker_id}_${searchParams.car_name_id}`)
+                url += `syasyu`
             } else {
-                url += `maker?category=${searchParams.car_maker_id}`
+                params.set('category', searchParams.car_maker_id)
+                url += `maker`
             }
         } else {
             url += 'category'
         }
 
-        return url
+        return url + '?' + params.toString()
     }
 }
