@@ -16,7 +16,7 @@ export default function Pagination({ count = 0, searchParams = {}, maxButtons = 
         1
     )
 
-    const end = start + maxButtons - 1
+    const end = Math.min(pageCount, (start + maxButtons - 1))
     const step = 1
 
     const ranges =  Array.from(
@@ -25,7 +25,7 @@ export default function Pagination({ count = 0, searchParams = {}, maxButtons = 
     )
 
     const onPage = (value) => {
-        if(['...', page].includes(value)) return
+        if( value < 1 || value == page || value > pageCount ) return
         replace('?' + new URLSearchParams({...searchParams, page: value}).toString())
     }
 
@@ -35,7 +35,7 @@ export default function Pagination({ count = 0, searchParams = {}, maxButtons = 
                 <nav>
                     <ul className="pagination justify-content-end">
                         <li className={`page-item ` + (page == 1 ? 'disabled' : '')} style={{cursor: 'pointer'}}>
-                            <a className="page-link" onClick={() => onPage(Math.max(page - 1, 1))}>Previous</a>
+                            <a className="page-link" onClick={() => onPage( page - 1 )}>Previous</a>
                         </li>
                         {ranges.map(value => (
                             <li key={value} className={`page-item ` + ((value == page) ? 'active' : '')} style={{cursor: 'pointer'}}>
@@ -43,7 +43,7 @@ export default function Pagination({ count = 0, searchParams = {}, maxButtons = 
                             </li>
                         ))}
                         <li className={`page-item ` + (page == pageCount ? 'disabled' : '')} style={{cursor: 'pointer'}}>
-                            <a className="page-link" onClick={() => onPage(Math.min(page + 1, pageCount))}>Next</a>
+                            <a className="page-link" onClick={() => onPage( page + 1 )}>Next</a>
                         </li>
                     </ul>
                 </nav>
