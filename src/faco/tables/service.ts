@@ -1,15 +1,13 @@
 import { isset } from "@/faco"
+import { TableClient } from "@/faco/tables/client"
 
 export const TableService = {
      async formFilterInit( searchParams ){
         let carnames = []
-
-        const response = await fetch(`${process.env.BASE_API_URL}/catalog/car_maker`)
-        const { list: makers = [] } = await response.json()
+        const makers = await TableClient.maker()
 
         if( isset(searchParams.car_maker_id) ){
-            const response = await fetch(`${process.env.BASE_API_URL}/ranking/syasyu/car_name?id=${searchParams.car_maker_id}`)
-            carnames = await response.json()
+            carnames = await TableClient.carnames(searchParams.car_maker_id)
         }
 
         return { searchParams, makers, carnames }

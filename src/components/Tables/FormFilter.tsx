@@ -3,6 +3,7 @@
 import { ChangeEvent, useState } from "react"
 import { useRouter } from "next/navigation"
 import { isset } from "@/faco"
+import {TableClient} from "@/faco/tables/client";
 
 export default function FormFilter({searchParams = {}, makers = [], carnames = []}) {
     const router = useRouter()
@@ -20,8 +21,7 @@ export default function FormFilter({searchParams = {}, makers = [], carnames = [
                 setState( state => ({...state, [name]: value, car_name_id: '', carnames: []}))
 
                 if( isset(value) ){
-                    const response = await fetch(`${process.env.BASE_API_URL}/ranking/syasyu/car_name?id=${value}`)
-                    carnames = await response.json()
+                    carnames = await TableClient.carnames(value)
                     setState( state => ({...state, carnames}))
                 }
                 break
