@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation"
 import { isset } from "@/faco"
 import { pick } from "lodash"
 
-export default function FormFilter({searchParams = {}, makers = [], carnames = []}) {
+export default function FormClient({searchParams = {}, makers = [], carnames = []}) {
     const { replace } = useRouter()
 
     const [state, setState] = useState({
