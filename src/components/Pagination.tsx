@@ -32,7 +32,9 @@ export default function Pagination({ count = 0, searchParams = {}, maxButtons = 
     return (
         <div className="row">
             <div className="col-sm-12 col-md-5">
-                検索結果  {count}件 {(page-1) * perPage + 1}～{Math.min(page * perPage, count)}件を表示しています
+                {count>0 && (
+                    <>検索結果 {count}件 {(page-1) * perPage + 1}～{Math.min(page * perPage, count)}件を表示しています</>
+                )}
             </div>
             <div className="col-sm-12 col-md-7">
                 { pageCount>1 && (
