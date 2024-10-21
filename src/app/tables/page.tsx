@@ -1,12 +1,15 @@
 import { Suspense } from 'react'
 import List from "@/components/Tables/List"
 import Search from "@/components/Tables/Search"
+import { formFilterInit } from "@/faco/services/tables"
 
-export default function Page({searchParams = {}}) {
+export default async function Page({searchParams = {}}) {
   return <div>
     <h1 className="h3 mb-1 text-gray-800"></h1>
     <div className="row">
-      <Search {...{searchParams}}/>
+
+      <Search {...(await formFilterInit(searchParams))}/>
+
       <div className="col-sm-12 col-md-12">
         <div className="table-responsive">
           <table className="table table-bordered bg-white" width="100%" cellSpacing="0">

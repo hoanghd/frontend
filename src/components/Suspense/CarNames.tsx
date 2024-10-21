@@ -16,7 +16,7 @@ const alphaText = {
 }
 
 export default async function CarNames({car_maker_id}) {
-    const response = await fetch(`https://back-prd.ke001.kurumaerabi.com/catalog/car_names/${car_maker_id}`)
+    const response = await fetch(`${process.env.BASE_API_URL}/catalog/car_names/${car_maker_id}`)
     const data = await response.json()
     return (
         <ul>

@@ -1,5 +1,5 @@
 export default async function Grades({car_maker_id, car_name_id, full_start_date}) {
-    const response = await fetch(`https://back-prd.ke001.kurumaerabi.com/catalog/grades/${car_maker_id}/${car_name_id}/${full_start_date}`)
+    const response = await fetch(`${process.env.BASE_API_URL}/catalog/grades/${car_maker_id}/${car_name_id}/${full_start_date}`)
     const result = await response.json()
     return (
         <ul>

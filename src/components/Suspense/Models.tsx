@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export default async function Models({car_maker_id, car_name_id}) {
-    const response = await fetch(`https://back-prd.ke001.kurumaerabi.com/catalog/models/${car_maker_id}/${car_name_id}`)
+    const response = await fetch(`${process.env.BASE_API_URL}/catalog/models/${car_maker_id}/${car_name_id}`)
     const result = await response.json()
 
     return (
