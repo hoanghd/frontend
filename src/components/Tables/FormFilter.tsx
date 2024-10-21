@@ -36,7 +36,7 @@ export default function FormFilter({searchParams = {}, makers = [], carnames = [
         ...searchParams,
         car_maker_id: state.car_maker_id,
         car_name_id: state.car_name_id
-    }).toString() )
+    }).toString())
 
     return (
         <form>
