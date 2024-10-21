@@ -29,8 +29,8 @@ export default async function ResultList({searchParams}) {
             </tr>
             </thead>
             <tbody>
-                {rows.map(row => (
-                    <tr key={`${row.car_maker_name}_${row.car_name}_${row.grade}`}>
+                {rows.map((row, index) => (
+                    <tr key={`${index}_${row.car_maker_name}_${row.car_name}_${row.grade}`}>
                         <td>{row.car_maker_name}</td>
                         <td>{row.car_name} {row.grade}</td>
                         <td>{row.first_registration_date.replace(/^(\d{4})-(\d{2}).+$/mg, "\$1年\$2月")}</td>
