@@ -33,7 +33,7 @@ export default function Pagination({ count = 0, searchParams = {}, maxButtons = 
         <div className="row">
             <div className="col-sm-12 col-md-5">
                 {count>0 && (
-                    <>検索結果 {count}件 {(page-1) * perPage + 1}～{Math.min(page * perPage, count)}件を表示しています</>
+                    <>検索結果 {new Intl.NumberFormat().format(count)}件 {(page-1) * perPage + 1}～{Math.min(page * perPage, count)}件を表示しています</>
                 )}
             </div>
             <div className="col-sm-12 col-md-7">
