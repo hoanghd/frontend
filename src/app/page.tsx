@@ -1,5 +1,4 @@
-import LoadingResult from "@/components/Tables/Loading/Result"
-import LoadingForm from "@/components/Tables/Loading/Form"
+import { SkeletonTablesResult, SkeletonTablesForm } from "@/components/Skeleton"
 import ResultList from "@/components/Tables/ResultList"
 import FormServer from "@/components/Tables/FormServer"
 import { Suspense } from "react"
@@ -14,7 +13,7 @@ export default async function Page({searchParams = {}}) {
             絞り込み
           </div>
           <div className="card-body">
-            <Suspense fallback={<LoadingForm/>}>
+            <Suspense fallback={<SkeletonTablesForm/>}>
               <FormServer {...{searchParams}} />
             </Suspense>
           </div>
@@ -22,7 +21,7 @@ export default async function Page({searchParams = {}}) {
       </div>
       <div className="col-sm-12 col-md-12">
         <div className="table-responsive">
-          <Suspense fallback={<LoadingResult/>}>
+          <Suspense fallback={<SkeletonTablesResult/>}>
             <ResultList {...{searchParams}} />
           </Suspense>
         </div>

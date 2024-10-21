@@ -1,4 +1,4 @@
-export default async function LoadingForm() {
+export function SkeletonTablesForm() {
     return (
         <form className="form-inline loading-skeleton">
             <div className="form-group">

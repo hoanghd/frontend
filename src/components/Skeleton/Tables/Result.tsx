@@ -1,4 +1,4 @@
-export default async function LoadingResult() {
+export function SkeletonTablesResult() {
     return (
         <table className="table table-bordered bg-white loading-skeleton" width="100%" cellSpacing="0">
             <thead>
