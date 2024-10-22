@@ -7,7 +7,6 @@ import {
 } from "@/components/Skeleton"
 
 import { Suspense } from "react"
-import { omit } from "lodash"
 
 export default async function Page({searchParams = {}}) {
 
@@ -21,7 +20,7 @@ export default async function Page({searchParams = {}}) {
           </div>
           <div className="card-body">
             <Suspense fallback={<SkeletonTablesForm/>}>
-              <FormServer {...{searchParams: omit(searchParams, ['page'])}} />
+              <FormServer {...{searchParams}} />
             </Suspense>
           </div>
         </div>
