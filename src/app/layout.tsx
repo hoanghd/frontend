@@ -32,15 +32,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                     </Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" href="/input/">
-                        <i className="fas fa-fw fa-cog"></i>
-                        <span>Input</span>
-                    </Link>
-                </li>
-                <li className="nav-item">
                     <Link className="nav-link" href="/login/">
                         <i className="fas fa-fw fa-cog"></i>
                         <span>Login</span>
+                    </Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" href="/input/">
+                        <i className="fas fa-fw fa-cog"></i>
+                        <span>Input</span>
                     </Link>
                 </li>
                 <hr className="sidebar-divider d-none d-md-block"/>
@@ -51,7 +51,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             <div id="content-wrapper" className="d-flex flex-column">
                 <div id="content">
                     <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-                    <button id="sidebarToggleTop" className="btn btn-link d-md-none rounded-circle mr-3">
+                        <button id="sidebarToggleTop" className="btn btn-link d-md-none rounded-circle mr-3">
                   <i className="fa fa-bars"></i>
                 </button>
                 <ul className="navbar-nav ml-auto">
