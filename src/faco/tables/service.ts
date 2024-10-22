@@ -2,7 +2,7 @@ import { isset } from "@/faco"
 import { TableClient } from "@/faco/tables/client"
 
 export const TableService = {
-     async formFilterInit( searchParams ){
+     async formInit( searchParams ){
         let carnames = []
         const makers = await TableClient.maker()
 

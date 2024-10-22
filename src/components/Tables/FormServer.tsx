@@ -3,6 +3,6 @@ import { TableService } from "@/faco/tables/service"
 
 export default async function FormServer({searchParams = {}}) {
     return (
-        <FormClient {...(await TableService.formFilterInit(searchParams))}/>
+        <FormClient {...(await TableService.formInit(searchParams))}/>
     )
 }
