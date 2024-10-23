@@ -1,6 +1,6 @@
 import type { NextRequest } from 'next/server'
 import { NextResponse } from 'next/server'
-import { getSession } from "@/faco"
+import { getSession } from '@/faco'
 
 export const config = {
     matcher: [
@@ -16,9 +16,9 @@ interface SessionData {
 export async function middleware(request: NextRequest) {
     const session = await getSession<SessionData>()
 
-    if( !session.isLoggedIn ){
-        return NextResponse.redirect(new URL('/login', request.url), 302)
-    }
+    // if( !session.isLoggedIn ){
+    //     return NextResponse.redirect(new URL('/login', request.url), 302)
+    // }
 
     await session.save()
     return NextResponse.next()
