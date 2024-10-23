@@ -9,10 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "lodash": "^4.17.21",
     "next": "14.2.15",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "lodash": "^4.17.21",
+    "ioredis": "^5.4.1"
   },
   "devDependencies": {
     "@types/lodash": "^4.17.12",

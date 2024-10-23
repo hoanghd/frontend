@@ -9,5 +9,3 @@ export function empty(data) {
 }
 
 export function isset(data){ return !empty(data) }
-
-export * from './session'

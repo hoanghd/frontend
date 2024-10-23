@@ -9,7 +9,6 @@ import {
 import { Suspense } from "react"
 
 export default async function Page({searchParams = {}}) {
-
   return <div>
     <h1 className="h3 mb-1 text-gray-800"></h1>
     <div className="row">

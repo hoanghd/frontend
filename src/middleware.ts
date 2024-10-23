@@ -1,6 +1,6 @@
 import type { NextRequest } from 'next/server'
 import { NextResponse } from 'next/server'
-import { getSession } from '@/faco'
+import { getSession } from '@/faco/session'
 
 export const config = {
     matcher: [
