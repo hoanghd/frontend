@@ -33,14 +33,15 @@ export default function FormClient({searchParams = {}, makers = [], carnames = [
         }
     }
 
-    const onSubmit = () => replace( `?` + new URLSearchParams({
-        ...searchParams,
-        ...pick(state, ['car_maker_id', 'car_name_id']),
-        page: 1
-    }).toString())
-
     return (
-        <form className="form-inline">
+        <form onSubmit={(event) => {
+            event.preventDefault()
+            replace( `?` + new URLSearchParams({
+                ...searchParams,
+                ...pick(state, ['car_maker_id', 'car_name_id']),
+                page: 1
+            }).toString())
+        }} className="form-inline">
             <div className="form-group">
                 <label className="mr-1">メーカー</label>
                 <select name="car_maker_id" onChange={setValue} value={state.car_maker_id} placeholder="すべて" className="form-control">
@@ -59,7 +60,7 @@ export default function FormClient({searchParams = {}, makers = [], carnames = [
                     )}
                 </select>
             </div>
-            <button onClick={onSubmit} type="button" className="btn btn-primary">絞込</button>
+            <button type="submit" className="btn btn-primary">絞込</button>
         </form>
     )
 }
