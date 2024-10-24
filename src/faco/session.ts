@@ -10,8 +10,8 @@ export interface SessionData {
 }
 
 export const sessionOptions: SessionOptions = {
-    password: process.env.SESSION_PW,
-    cookieName: process.env.COOKIE_NAME,
+    password: (process.env.SESSION_PW || ''),
+    cookieName: (process.env.COOKIE_NAME || ''),
     cookieOptions: {
         secure: (process.env.NODE_ENV === "production"),
         maxAge: 20 * 60, // 20 minutes

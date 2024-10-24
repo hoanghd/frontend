@@ -12,7 +12,7 @@ export function SkeletonTablesResult() {
             </thead>
             <tbody>
             <tr>
-                <td colSpan="5"></td>
+                <td colSpan={5}></td>
             </tr>
             </tbody>
         </table>

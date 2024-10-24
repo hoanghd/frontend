@@ -2,7 +2,7 @@ import { isset } from "@/faco"
 import { TableClient } from "@/faco/tables/client"
 
 export const TableService = {
-     async formInit( searchParams ){
+     async formInit( searchParams: any ){
         let carnames = []
         const makers = await TableClient.maker()
 
@@ -13,9 +13,9 @@ export const TableService = {
         return { searchParams, makers, carnames }
     },
 
-    makeUrl(searchParams){
+    makeUrl(searchParams: any){
         let url = `${process.env.BASE_API_URL}/ranking/`
-        let params = new URLSearchParams({
+        const params = new URLSearchParams({
             page: searchParams.page || 1
         })
 

@@ -39,23 +39,23 @@ export default function FormClient({searchParams = {}, makers = [], carnames = [
             replace( `?` + new URLSearchParams({
                 ...searchParams,
                 ...pick(state, ['car_maker_id', 'car_name_id']),
-                page: 1
+                page: "1"
             }).toString())
         }} className="form-inline">
             <div className="form-group">
                 <label className="mr-1">メーカー</label>
-                <select name="car_maker_id" onChange={setValue} value={state.car_maker_id} placeholder="すべて" className="form-control">
+                <select name="car_maker_id" onChange={setValue} value={state.car_maker_id} className="form-control">
                     <option value="">すべて</option>
-                    {makers && makers.map(row =>
+                    {makers && makers.map((row: any) =>
                         <option key={row.car_maker_id} value={row.car_maker_id}>{row.car_maker_name}</option>
                     )}
                 </select>
             </div>
             <div className="form-group mx-sm-3">
                 <label className="mr-1">車名</label>
-                <select name="car_name_id" onChange={setValue} value={state.car_name_id} placeholder="すべて" className="form-control">
+                <select name="car_name_id" onChange={setValue} value={state.car_name_id} className="form-control">
                     <option value="">すべて</option>
-                    {state.carnames && state.carnames.map(row =>
+                    {state.carnames && state.carnames.map((row: any) =>
                         <option key={row.car_name_id} value={row.car_name_id}>{row.name}</option>
                     )}
                 </select>

@@ -2,7 +2,7 @@ import { empty } from "@/faco"
 import Pagination from "@/components/Pagination"
 import { TableClient } from "@/faco/tables/client"
 
-export default async function ResultList({searchParams}) {
+export default async function ResultList({searchParams}: any) {
     const { rows = [], count = 0 } = await TableClient.find(searchParams)
 
     return (
@@ -19,7 +19,7 @@ export default async function ResultList({searchParams}) {
                 </thead>
                 <tbody>
 
-                {rows.map((row, index) => (
+                {rows.map((row: any, index: number) => (
                     <tr key={`${index}_${row.car_maker_name}_${row.car_name}_${row.grade}`}>
                         <td>{row.car_maker_name}</td>
                         <td>{row.car_name} {row.grade}</td>

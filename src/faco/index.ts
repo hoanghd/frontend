@@ -1,4 +1,4 @@
-export function empty(data) {
+export function empty(data: any) {
     switch( typeof(data) ){
         case 'object': return (JSON.stringify(data) === '{}' || JSON.stringify(data) === '[]' || !data)
         case 'string': return !data.trim()
@@ -8,4 +8,4 @@ export function empty(data) {
     }
 }
 
-export function isset(data){ return !empty(data) }
+export function isset(data: any){ return !empty(data) }

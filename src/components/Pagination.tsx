@@ -1,12 +1,13 @@
 'use client'
 
 import { useRouter } from "next/navigation"
+import { get } from "lodash"
 
 export default function Pagination({ count = 0, searchParams = {}, maxButtons = 5, perPage = 20 }) {
     const { replace } = useRouter()
 
     const pageCount = Math.max(1, Math.ceil(count / perPage))
-    const page = Math.min( parseInt(searchParams.page) || 1, pageCount)
+    const page = Math.min( parseInt(get(searchParams, 'page', '1')) || 1, pageCount)
 
     const start = Math.max(
         Math.min(
@@ -24,9 +25,9 @@ export default function Pagination({ count = 0, searchParams = {}, maxButtons = 
         (value, index) => start + index * step
     )
 
-    const onPage = (value) => {
+    const onPage = (value: number) => {
         if( value < 1 || value == page || value > pageCount ) return
-        replace('?' + new URLSearchParams({...searchParams, page: value}).toString())
+        replace('?' + new URLSearchParams({...searchParams, page: String(value)}).toString())
     }
 
     return (
