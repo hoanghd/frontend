@@ -16,6 +16,7 @@
     "@mui/material": "^6.1.5",
     "@mui/material-nextjs": "^6.1.5",
     "@mui/styled-engine-sc": "^6.1.5",
+    "@mui/styles": "^6.1.5",
     "@mui/x-date-pickers-pro": "^7.21.0",
     "@tabler/icons-react": "^3.20.0",
     "dayjs": "^1.11.13",

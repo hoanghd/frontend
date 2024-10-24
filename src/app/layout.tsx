@@ -1,8 +1,5 @@
-import ClientLocalizationProvider from "@/components/ClientLocalizationProvider"
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter'
-import { ThemeProvider } from '@mui/material/styles'
+import Provider from "@/components/Provider"
 import type { Metadata } from 'next'
-import theme from '@/theme'
 
 export const metadata: Metadata = {
   title: "Symphony",
@@ -13,13 +10,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
       <html lang="en">
           <body>
-              <AppRouterCacheProvider options={{ key: 'css', enableCssLayer: true }}>
-                  <ThemeProvider theme={theme}>
-                      <ClientLocalizationProvider>
-                          {children}
-                      </ClientLocalizationProvider>
-                  </ThemeProvider>
-              </AppRouterCacheProvider>
+              <Provider>
+                  {children}
+              </Provider>
           </body>
       </html>
   )
