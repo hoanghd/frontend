@@ -6,15 +6,21 @@ import type {} from '@mui/x-date-pickers-pro/themeAugmentation'
 export default createTheme({
     cssVariables: true,
     components: {
+        MuiPickersArrowSwitcher: {
+            styleOverrides: {
+                button: {
+                    color: '#ffffff'
+                }
+            }
+        },
         MuiPickersCalendarHeader: {
             styleOverrides: {
-                label: {
+                root: {
                     color: '#bbdefb',
-                    borderRadius: '4px',
-                    borderWidth: '0px',
-                    borderColor: '#2196f3',
-                    border: '0px solid',
-                    backgroundColor: '#0d47a1',
+                    backgroundColor: '#0d47a1'
+                },
+                switchViewButton: {
+                    color: '#ffffff'
                 }
             }
         }
