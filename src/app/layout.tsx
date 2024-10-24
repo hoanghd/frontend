@@ -1,3 +1,4 @@
+import ClientLocalizationProvider from "@/components/ClientLocalizationProvider"
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter'
 import { ThemeProvider } from '@mui/material/styles'
 import type { Metadata } from 'next'
@@ -14,7 +15,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <body>
               <AppRouterCacheProvider options={{ key: 'css', enableCssLayer: true }}>
                   <ThemeProvider theme={theme}>
-                      {children}
+                      <ClientLocalizationProvider>
+                          {children}
+                      </ClientLocalizationProvider>
                   </ThemeProvider>
               </AppRouterCacheProvider>
           </body>

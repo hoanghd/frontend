@@ -1,3 +1,7 @@
-export default async function Page() {
-  return <div/>
+import { DatePicker } from '@mui/x-date-pickers-pro'
+
+export default function Page() {
+  return (
+      <DatePicker/>
+  )
 }
