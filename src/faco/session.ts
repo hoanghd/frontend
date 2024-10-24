@@ -1,33 +1,26 @@
-'use server'
+import { SessionOptions, getIronSession } from "iron-session"
+import type { NextRequest, NextResponse } from "next/server"
+import { cookies } from "next/headers"
 
-import { cookies } from 'next/headers'
-
-export type Session<T> = T & {
-    readonly save: (flag?: boolean) => Promise<void>
-    readonly destroy: () => void
+export interface SessionData {
+    id: number
+    username: string
+    token: string
+    isLoggedIn: boolean
 }
 
-const { COOKIE_NAME } = process.env
-
-export async function getSession<T extends object>(): Promise<Session<T>>{
-    const cookieStore = await cookies()
-
-    if( cookieStore.has(COOKIE_NAME) ){
-        const id = cookieStore.get(COOKIE_NAME)?.value
-        console.log(id)
+export const sessionOptions: SessionOptions = {
+    password: process.env.SESSION_PW,
+    cookieName: process.env.COOKIE_NAME,
+    cookieOptions: {
+        secure: (process.env.NODE_ENV === "production"),
+        maxAge: 20 * 60, // 20 minutes
     }
+}
 
-    const session = ({} as T)
-
-    Object.defineProperties(session, {
-        save: {
-            value: async (flag?) => {}
-        },
-
-        destroy: {
-            value: () => {}
-        }
-    })
-
-    return session as Session<T>
+export async function getSession(request?: NextRequest, response?:  NextResponse) {
+    if( request && response ){
+        return await getIronSession<SessionData>(request, response, sessionOptions)
+    }
+    return await getIronSession<SessionData>(cookies(), sessionOptions)
 }

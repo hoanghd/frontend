@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from 'next/link'
+import Logout from "@/components/Logout";
 
 export const metadata: Metadata = {
   title: "Symphony",
@@ -37,12 +38,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                         <span>Login</span>
                     </Link>
                 </li>
-                <li className="nav-item">
-                    <Link className="nav-link" href="/input/">
-                        <i className="fas fa-fw fa-cog"></i>
-                        <span>Input</span>
-                    </Link>
-                </li>
                 <hr className="sidebar-divider d-none d-md-block"/>
                 <div className="text-center d-none d-md-inline">
                     <button className="rounded-circle border-0" id="sidebarToggle"></button>
@@ -55,6 +50,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                   <i className="fa fa-bars"></i>
                 </button>
                 <ul className="navbar-nav ml-auto">
+                  <li className="nav-item dropdown no-arrow">
+                      <div className="nav-link dropdown-toggle">
+                          <Logout/>
+                      </div>
+                  </li>
                   <li className="nav-item dropdown no-arrow">
                     <Link className="nav-link dropdown-toggle" href="/">
                       <span className="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
