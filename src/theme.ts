@@ -13,11 +13,27 @@ export default createTheme({
                 }
             }
         },
+        MuiDayCalendar: {
+            styleOverrides: {
+                slideTransition: {
+                    minHeight: '198px'
+                }
+            }
+        },
+        MuiDateCalendar: {
+            styleOverrides: {
+                root: {
+                    width: 'auto',
+                    height: 'auto'
+                }
+            }
+        },
         MuiPickersCalendarHeader: {
             styleOverrides: {
                 root: {
-                    color: '#bbdefb',
-                    backgroundColor: '#0d47a1'
+                    color: '#ffffff',
+                    backgroundColor: '#008EC1',
+                    marginTop: '1px'
                 },
                 switchViewButton: {
                     color: '#ffffff'
